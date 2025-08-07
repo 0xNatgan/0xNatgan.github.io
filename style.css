@@ -1,0 +1,101 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header h2 {
+    margin: 0;
+    font-weight: normal;
+    color: #666;
+}
+
+header p {
+    margin-top: 10px;
+}
+
+section {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h3 {
+    margin-top: 0;
+    color: #444;
+}
+
+.bubble-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+}
+
+.bubble-list li {
+    background: #efefef;
+    padding: 2px 5px;
+    border-radius: 6px;
+    font-size: 0.8em;
+}
+
+.job, .project, .education {
+    margin-bottom: 20px;
+}
+
+.date {
+    display: block;
+    font-size: 0.9em;
+    color: #777;
+}
+
+details summary {
+    display: flex;
+    align-items: center; /* Aligne la flèche et le texte sur la même ligne */
+    cursor: pointer;
+    padding-left: 0; /* Supprime le décalage inutile */
+}
+
+details summary::before {
+    content: '▶'; /* Ajoute une flèche personnalisée */
+    display: inline-block;
+    margin-right: 10px; /* Ajoute un espace entre la flèche et le texte */
+    transform: rotate(0deg); /* Par défaut, la flèche pointe vers la droite */
+    transition: transform 0.2s ease; /* Animation pour la rotation */
+}
+
+details[open] summary::before {
+    transform: rotate(90deg); /* Fait pivoter la flèche vers le bas lorsque la section est ouverte */
+}
+
+details summary h2 {
+    margin: 0;
+    padding-left: 5px;
+}
