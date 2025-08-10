@@ -28,9 +28,14 @@
           +33&nbsp;07&nbsp;81&nbsp;61&nbsp;31&nbsp;02
         </span>
         <br>
-        <a href="cv.pdf" target="_blank" download>
-          <img src="ressources/pdf.png" alt="Télécharger CV" style="height:1em;vertical-align:middle;margin-right:4px;">
-          Télécharger le CV (PDF)
+        <a href="cv_fr.pdf" target="_blank" download>
+          <img src="ressources/pdf.png" alt="Télécharger CV FR" style="height:1em;vertical-align:middle;margin-right:4px;">
+          Télécharger le CV (FR)
+        </a>
+        |
+        <a href="cv_en.pdf" target="_blank" download>
+          <img src="ressources/pdf.png" alt="Download CV EN" style="height:1em;vertical-align:middle;margin-right:4px;">
+          Download CV (EN)
         </a>
       </p>
       <p> </p>
@@ -38,9 +43,10 @@
 
     <section>
       <h2>Profil</h2>
-        <p>Étudiant en intelligence artificielle et passionné par l'informatique et les nouvelles technologies, je suis à la recherche d'un stage dans le domaine de l'IA à partir de février 2026 pour une durée de six mois.</p>
-        <p>Ayant exploré divers domaines tels que la robotique, le web et la cybersécurité avant de me spécialiser en IA, j'ai acquis des compétences solides en programmation et en analyse de données. Je suis toujours à la recherche de nouveaux défis pour élargir mes connaissances.</p>
-        <p>Au fil de mes expériences en tant que responsable de parc informatique, animateur et concepteur de stages, participant à des CTF, puis stagiaire en IA, j'ai appris à travailler en équipe et à maîtriser de nouveaux outils et langages de programmation afin de m'adapter aux tâches demandées.</p>
+       <p>Étudiant en intelligence artificielle passionné par l'informatique et les nouvelles technologies. Je suis à la recherche d'un stage dans le domaine de l'intelligence artificielle à partir de février 2026 pour une durée de 6 mois.</p>
+       <p>Ayant exploré divers domaines tels la robotique, le web et la cybersécurité avant de me spécialiser en IA. J'ai acquis des compétences solides en programmation et en analyse de données, et je suis toujours à la recherche de nouveaux défis pour élargir mes connaissances.</p>
+       <p>Au fil de mes expériences en tant que responsable de parc informatique, animateur et concepteur de stages, participant à des CTF et ensuite stagiaire en IA, j'ai appris à travailler en équipe et à apprendre de nouveaux outils et langages de programmation afin de m'adapter à la tâche demandée.</p>
+
     </section>
 
     <!-- Compétences -->
@@ -81,7 +87,7 @@
       </ul>
         <p>Langues :</p>
       <ul>
-        <li> Anglais C1+ </li>
+        <li> Anglais C1+ (languaskill)</li>
         <li> Allemand B2</li>
       </ul>
         <p>Permis B</p>
@@ -96,7 +102,7 @@
                 <span class="date">Mai 2025 - Juillet 2025</span>
                 <ul>
                 <li>Mise en place d'un <a href="#DocGen_LLM">outil</a> de documentation de base de code à l'aide de modèles de langage</li>
-                <li>Conseil sur des outils d'intelligence artificielle</li>
+                <li>Conseil pour l'intégration d'outils d'intelligence artificielle dans l'entreprise.</li>
                 <li>Participation à des projets de recherche en IA lié au traffic urbain</li>
                 </ul>
             </div>
@@ -104,10 +110,9 @@
                 <h4>Responsable du parc informatique bénévole et trésorier – Jeunes sciences Bordeaux</h4>
                 <span class="date">2019 – 2025</span>
                 <ul>
-                    <li>Gestion et maintenance du parc informatique</li>
+                    <li>Gestion et maintenance du parc informatique à l'aide de GLPI</li>
                     <li>Assistance technique aux utilisateurs</li>
                     <li>Maintenance des équipements informatiques</li>
-                    <li>Gestion des stocks de matériel informatique à l'aide de GLPI</li>
                     <li>Gestion des finances de l'association</li>
                 </ul>
             </div>
@@ -115,7 +120,7 @@
                 <h4>Animateur de stages d'Informatique et Robotique – Jeunes sciences Bordeaux</h4>
                 <span class="date">2019 – 2025</span>
                 <ul>
-                    <li>Conception et animation de stages de robotique et d'informatique pour les jeunes durant les vacances scolaires</li>
+                    <li>Conception et animation de stages de robotique et d'informatique pour des jeunes de 8 à 17 ans</li>
                 </ul>
             </div>
             <div class="job">
@@ -152,7 +157,7 @@
       </ul>
       <details>
         <p>Problématique principale : Générer une documentation de code de manière automatisée et agnostique au langage dans le cadre de projet manquants de documentation et/ou ayant une documentation peu claire</p>
-        <p>DocGen_LLM est un outil de génération de documentation de code qui utilise des modèles de langage en lien avec des serveurs de langage pour générer une documentation claire et concise de l'ensemble d'une base de code d'un projet. Il est conçu pour être agnostique par rapport aux langages de programmation. L'outil s'intègre facilement dans les outils de lecture de documentation tels que mkdocs. L'outil permet de générer une documentation à ajouter au code ou à utiliser dans une documentation externe utilisant markdown ou HTML</p>
+        <p>DocGen_LLM est un outil de génération de documentation de code qui utilise des modèles de langage en combinaison avec des serveurs de langage pour créer un contexte concis destiné à des modèles de faible capacité, afin de produire une documentation claire et concise pour l'ensemble d'une base de code. Il est conçu pour être indépendant du langage de programmation. L'outil s'intègre facilement avec des outils de lecture de documentation comme mkdocs. Il permet de générer une documentation à ajouter au code ou à utiliser dans une documentation externe au format Markdown ou HTML.</p>
         <p>Caractéristiques :</p>
         <ul>
           <li>Technologies utilisées : Python, Docker, Serveurs de langage, LLM, MKDocs</li>
@@ -172,13 +177,12 @@
       </ul>
       <details>
         <p>Problématique principale : Dans le cadre d'un besoin d'analyse d'un projet en TCL j'ai développé un serveur de language pour faciliter cette tâche et la rendre possible avec mon projet DocGen_LLM.</p>
-        <p>Ce serveur de language permet d'analyser le code TCL et d'en extraire des informations selon le standard LSP.</p>
-        <p>Cette implémentation founi quelques fonctionnalités de base pour l'analyse de code TCL dans le cadre des besoins d'un autre projet.</p>
+        <p>Ce serveur de language permet d'analyser le code TCL et d'en extraire des informations selon le standard LSP. Ce projet est une implémentation simple d'un serveur de langage TCL avec les capacités suivantes : extraction de symbols, recherche de définitions ainsi que références. Ce projet comprend une interface stdin/out et TCP.</p>
       </details>
     </div>
     <div class="project" id="Quoridor">
       <h4>Quoridor</h4>
-        <p>Jeu de société Quoridor développé en Java avec une interface graphique et des IA. Projet Réalisé dans le cadre des cours de l'Université de Bordeaux.</p>
+        <p>Jeu de société Quoridor développé en Java avec une interface graphique et des IA. Projet réalisé dans le cadre des cours de l'Université de Bordeaux.</p>
         <ul class="bubble-list">
             <li>Java</li>
             <li>IA</li>
