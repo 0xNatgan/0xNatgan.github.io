@@ -80,6 +80,7 @@
       list-style: none;
       display: flex;
       gap: 2rem;
+      align-items: center;
     }
 
     nav ul a {
@@ -640,6 +641,7 @@
     </p>
     <div class="hero-ctas">
       <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="resume.html" class="btn btn-ghost">View Resume</a>
       <a href="https://github.com/0xNatgan" target="_blank" class="btn btn-ghost">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
           <path
@@ -730,7 +732,7 @@
 
       <!-- ② DocGen LLM — no image yet -->
       <div class="reveal">
-        <div class="project-card">
+        <a href="https://github.com/0xNatgan/DocGen_LLM" target="_blank" class="project-card">
           <div class="card-inner no-image">
             <div class="card-body">
               <div class="project-header">
@@ -745,8 +747,8 @@
                 Uses Language Server Protocol servers for precise symbol and structure extraction,
                 then passes that context to an LLM to produce summaries, docstrings, and Markdown docs.
                 Language-agnostic by design — if an LSP exists for it, DocGen can document it.
-                A TCL lsp is available at this link : <a href="https://github.com/0xNatgan/tcl-lsp" target="_blank"
-                  style="color: var(--accent); text-decoration: underline;">github.com/0xNatgan/tcl-lsp</a>
+                A TCL lsp is available at this link : <span onclick="event.preventDefault(); window.open('https://github.com/0xNatgan/tcl-lsp', '_blank')"
+                  style="color: var(--accent); text-decoration: underline; cursor: pointer;">github.com/0xNatgan/tcl-lsp</span>
               </p>
               <div class="project-tech">
                 <span class="tech-chip">Python</span>
@@ -756,10 +758,10 @@
                 <span class="tech-chip">CLI</span>
                 <span class="tech-chip">Ollama</span>
               </div>
-              <a href="https://github.com/0xNatgan/DocGen_LLM" target="_blank" class="project-link">View on GitHub →</a>
+              <span class="project-link">View on GitHub →</span>
             </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- ③ Beepfake Internship — no image, no link -->
