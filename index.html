@@ -439,6 +439,14 @@
       border: 1px solid var(--border);
       padding: 0.2rem 0.55rem;
       border-radius: 4px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .tech-chip:hover, .skill-tag:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: #FDE8E3;
     }
 
     .project-link {
@@ -633,8 +641,9 @@
 
   <!-- HERO -->
   <div class="hero">
+    <img src="ressources/photo_cv.jpg" alt="Nathan Fitger" style="width: 88px; height: 88px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.6s ease forwards;">
     <p class="hero-eyebrow">Junior AI Engineer</p>
-    <h1 class="hero-name"><span class="prefix">0x</span>Natgan</h1>
+    <h1 class="hero-name">Hi, I'm Nathan <span style="font-size: 0.45em; color: var(--muted); font-weight: 400; vertical-align: middle; white-space: nowrap;">— <span class="prefix">0x</span>Natgan</span></h1>
     <p class="hero-tagline">
       Building AI models, intelligent pipelines, agentic systems, and the occasional
       hardware mod. Currently at Beepfake (Inria) — available for full-time roles or PhD from November 2026.
@@ -705,7 +714,9 @@
           <div class="card-inner no-image">
             <div class="card-body">
               <div class="project-header">
-                <span class="project-name">Multi-Expert Peptide Pipeline</span>
+                <span class="project-name">
+                  <h2>Multi-Expert Peptide Pipeline</h2>
+                </span>
                 <div class="project-badges">
                   <span class="badge badge-uni">University</span>
                   <span class="badge badge-personal">Group Project</span>
@@ -736,10 +747,12 @@
           <div class="card-inner no-image">
             <div class="card-body">
               <div class="project-header">
-                <span class="project-name">DocGen LLM</span>
+                <span class="project-name">
+                  <h2>DocGen LLM</h2>
+                </span>
                 <div class="project-badges">
                   <span class="badge badge-internship">Internship</span>
-                  <span class="badge badge-wip">In Progress</span>
+                  <span class="badge badge-wip">Maintning</span>
                 </div>
               </div>
               <p class="project-desc">
@@ -747,7 +760,8 @@
                 Uses Language Server Protocol servers for precise symbol and structure extraction,
                 then passes that context to an LLM to produce summaries, docstrings, and Markdown docs.
                 Language-agnostic by design — if an LSP exists for it, DocGen can document it.
-                A TCL lsp is available at this link : <span onclick="event.preventDefault(); window.open('https://github.com/0xNatgan/tcl-lsp', '_blank')"
+                A TCL lsp is available at this link : <span
+                  onclick="event.preventDefault(); window.open('https://github.com/0xNatgan/tcl-lsp', '_blank')"
                   style="color: var(--accent); text-decoration: underline; cursor: pointer;">github.com/0xNatgan/tcl-lsp</span>
               </p>
               <div class="project-tech">
@@ -770,16 +784,15 @@
           <div class="card-inner no-image">
             <div class="card-body">
               <div class="project-header">
-                <span class="project-name">Beepfake Internship</span>
+                <span class="project-name">
+                  <h2>Beepfake Internship</h2>
+                </span>
                 <div class="project-badges">
                   <span class="badge badge-current">Current Internship</span>
                 </div>
               </div>
               <p class="project-desc">
-                Building evaluation infrastructure to benchmark audio and image models across
-                multiple dimensions, writing evaluation harnesses, running comparisons between
-                existing and new models, and contributing to model development informed by recent
-                research.
+                Designed and built evaluation infrastructure covering voice cloning, image, and video models — writing harnesses, running cross-model comparisons, and contributing to new model development grounded in recent research.
               </p>
               <div class="project-tech">
                 <span class="tech-chip">Python</span>
@@ -805,14 +818,16 @@
           <div class="card-inner">
             <div class="card-body">
               <div class="project-header">
-                <span class="project-name">USB-C Wii + Watercooling</span>
+                <span class="project-name">
+                  <h2>USB-C Wii + Watercooling</h2>
+                </span>
                 <div class="project-badges">
                   <span class="badge badge-personal">Personal</span>
                 </div>
               </div>
               <p class="project-desc">
                 Modded a Nintendo Wii to run entirely on USB-C power and added a custom
-                watercooling loop. The original wii was to boring so i pimped it a little bit.
+                watercooling loop. The original wii was too boring so i pimped it a little bit.
                 See more details and photos in the GitHub repo linked below (coming soon).
               </p>
               <div class="project-tech">
@@ -825,6 +840,58 @@
             <div class="card-image">
               <!-- Replace this placeholder with your actual <img> tag -->
               <img src="ressources/moded_wii.jpg" alt="USB-C Wii watercooling mod" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⑤ TE AI CUP -->
+      <div class="reveal">
+        <div class="project-card-nolink">
+          <div class="card-inner no-image">
+            <div class="card-body">
+              <div class="project-header">
+                <span class="project-name">
+                  <h2>TE AI CUP — Time Series Anomaly Detection</h2>
+                </span>
+                <div class="project-badges">
+                  <span class="badge badge-personal">Competition</span>
+                </div>
+              </div>
+              <p class="project-desc">
+                Plating anomaly detection in a production chain using time series AI models.
+              </p>
+              <div class="project-tech">
+                <span class="tech-chip">Time Series</span>
+                <span class="tech-chip">Anomaly Detection</span>
+                <span class="tech-chip">AI Models</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⑥ ApiDays Hackathon -->
+      <div class="reveal">
+        <div class="project-card-nolink">
+          <div class="card-inner no-image">
+            <div class="card-body">
+              <div class="project-header">
+                <span class="project-name">
+                  <h2>ApiDays 2025 · Hackathon</h2>
+                </span>
+                <div class="project-badges">
+                  <span class="badge badge-personal">Hackathon</span>
+                </div>
+              </div>
+              <p class="project-desc">
+                Built an MCP layer on a Neo4j graph database, using symbol/dependency data extracted from DocGen_LLM as the source graph.
+              </p>
+              <div class="project-tech">
+                <span class="tech-chip">MCP</span>
+                <span class="tech-chip">Neo4j</span>
+                <span class="tech-chip">Graph DB</span>
+              </div>
             </div>
           </div>
         </div>
@@ -858,14 +925,15 @@
           </svg>
           GitHub
         </a>
-        <a href="mailto:your@email.com" class="btn btn-ghost">Email me</a>
-        <a href="https://www.linkedin.com/in/0xnatgan" target="_blank" class="btn btn-ghost">LinkedIn</a>
+        <a href="mailto:nath.fitger@gmail.com" class="btn btn-ghost">Email me</a>
+        <a href="https://www.linkedin.com/in/nfitger" target="_blank" class="btn btn-ghost">LinkedIn</a>
       </div>
     </div>
   </section>
 
   <footer>
     <span><span style="color:var(--accent)">0x</span>Natgan</span> · Built with HTML &amp; CSS · 2026
+    <div style="margin-top: 0.6rem; font-size: 0.85em; opacity: 0.6;">Last updated: June 2026</div>
   </footer>
 
   <!-- IMAGE MODAL -->
