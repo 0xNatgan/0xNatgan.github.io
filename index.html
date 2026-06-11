@@ -1,233 +1,843 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nathan Fitger</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="ressources/_SDB2250-2.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0xNatgan — AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #FAF9F7;
+      --surface: #F3F0EB;
+      --text: #0F0D0B;
+      --muted: #7A6F65;
+      --accent: #D94F2B;
+      /* vermilion */
+      --accent-2: #E8845C;
+      /* coral — used for gradients & hover */
+      --accent-light: #FAEDE8;
+      --border: #E8E2DA;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Space Grotesk', sans-serif;
+      --body: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      background: rgba(250, 249, 247, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo .prefix {
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover {
+      color: var(--accent);
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 2.5rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+
+    .hero-name {
+      font-family: var(--sans);
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+
+    .hero-name .prefix {
+      font-family: var(--mono);
+      font-weight: 400;
+      color: var(--accent);
+      font-size: 0.72em;
+      vertical-align: baseline;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-tagline {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.35s;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.45s;
+    }
+
+    .btn {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.7rem 1.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-2);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ─── SECTIONS ────────────────────────────────────── */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--sans);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 520px;
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .about-block {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .about-block h3 {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.6rem;
+    }
+
+    .about-block p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.75rem;
+    }
+
+    .skill-tag {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* ─── PROJECT CARDS ───────────────────────────────── */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Wrapper handles both linked and non-linked cards */
+    .project-card,
+    .project-card-nolink {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .project-card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 6px 28px rgba(217, 79, 43, 0.10);
+      transform: translateY(-2px);
+    }
+
+    /* Inner layout: text left, image right */
+    .card-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0;
+    }
+
+    .card-inner.no-image {
+      grid-template-columns: 1fr;
+    }
+
+    .card-body {
+      padding: 1.75rem 2rem;
+      border-left: 3px solid var(--accent);
+      min-width: 0;
+    }
+
+    /* Image panel */
+    .card-image {
+      width: 220px;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      background: var(--surface);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover .card-image img {
+      transform: scale(1.04);
+    }
+
+    /* Placeholder shown when no image src is set */
+    .card-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--border);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card-image-placeholder svg {
+      opacity: 0.35;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .project-name {
+      font-family: var(--sans);
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .project-badges {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .badge-uni {
+      background: #EEF7EE;
+      color: #2E7D32;
+    }
+
+    .badge-internship {
+      background: #FFF3E0;
+      color: #E65100;
+    }
+
+    .badge-current {
+      background: #FDE8E3;
+      color: var(--accent);
+    }
+
+    .badge-personal {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .badge-wip {
+      background: #FFF8E1;
+      color: #F57F17;
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tech-chip {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-family: var(--sans);
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 1rem;
+      text-decoration: none;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    .contact-box {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-family: var(--sans);
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── REVEAL ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 680px) {
+      nav {
+        padding: 1rem 1.25rem;
+      }
+
+      nav ul {
+        gap: 1.25rem;
+      }
+
+      .hero,
+      section {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 2rem 1.25rem;
+      }
+
+      .card-inner {
+        grid-template-columns: 1fr !important;
+      }
+
+      .card-image {
+        width: 100%;
+        height: 180px;
+        order: -1;
+        /* image on top on mobile */
+        border-radius: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .hero-eyebrow,
+      .hero-name,
+      .hero-tagline,
+      .hero-ctas {
+        animation: none;
+        opacity: 1;
+      }
+
+      .reveal {
+        transition: none;
+      }
+
+      .card-image img {
+        transition: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <h1>Nathan Fitger</h1>
-      <h2>Étudiant en intelligence artificielle</h2>
-      <h2><strong>Master 2 - Université de Bordeaux</strong></h2>
-      <p>
-        Email: nath.fitger@gmail.com |
-        <a href="https://www.linkedin.com/in/nfitger/" target="_blank">
-          <img src="ressources/logo-linkedin.png" alt="LinkedIn" style="height:1em;vertical-align:middle;margin-right:4px;">
-          LinkedIn
-        </a> |
-        <a href="https://github.com/0xNatgan" target="_blank">
-          <img src="ressources/github.png" alt="GitHub" style="height:1em;vertical-align:middle;margin-right:4px;">
-          GitHub
-        </a> |
-        <span style="white-space:nowrap;">
-          <img src="ressources/appel.png" alt="Téléphone" style="height:1em;vertical-align:middle;margin-right:4px;">
-          +33&nbsp;07&nbsp;81&nbsp;61&nbsp;31&nbsp;02
-        </span>
-        <br>
-        <a href="CV_FR_NATHAN_FITGER.pdf" target="_blank" download>
-          <img src="ressources/pdf.png" alt="Télécharger CV FR" style="height:1em;vertical-align:middle;margin-right:4px;">
-          Télécharger le CV (FR)
-        </a>
-        |
-        <a href="CV_en_Nathan_Fitger.pdf"_blank" download>
-          <img src="ressources/pdf.png" alt="Download CV EN" style="height:1em;vertical-align:middle;margin-right:4px;">
-          Download CV (EN)
-        </a>
-      </p>
-      <p> </p>
-    </header>
 
-    <section>
-      <h2>Profil</h2>
-  <p>Étudiant en intelligence artificielle passionné par l'informatique et les nouvelles technologies, je suis à la recherche d'un stage dans le domaine de l'intelligence artificielle à partir de mars 2026 pour une durée de 6 mois.</p>
-  <p>Ayant exploré divers domaines tels que la robotique, le web et la cybersécurité avant de me spécialiser en IA, j'ai acquis des compétences solides en programmation et en analyse de données, et je suis toujours à la recherche de nouveaux défis pour élargir mes connaissances.</p>
-  <p>Au fil de mes expériences en tant que responsable de parc informatique, animateur et concepteur de stages, participant à des CTF et stagiaire en IA, j'ai appris à travailler en équipe et à maîtriser de nouveaux outils et langages de programmation afin de m'adapter aux tâches demandées.</p>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo"><span class="prefix">0x</span>Natgan</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="resume.html" class="btn btn-ghost" style="padding:0.45rem 1rem;font-size:0.82rem;">Resume</a></li>
+    </ul>
+  </nav>
 
-    </section>
-
-    <!-- Compétences -->
-    <section>
-      <h2>Compétences</h2>
-      <ul class="bubble-list">
-        <li>Python</li>
-        <li>Scikit-learn</li>
-        <li>Pytorch</li>
-        <li>LSP-servers</li>
-        <li>C</li>
-        <li>SQL</li>
-        <li>Java</li>
-        <li>C++</li>
-        <li>TCL</li>
-        <li>Machine Learning</li>
-        <li>Deep Learning</li>
-        <li>API</li>
-        <li>Mkdocs</li> 
-        <li>Docker</li>
-        <li>Git</li>
-        <li>CTF</li>
-        <li>IA</li>
-        <li>Open source</li>
-        <li>RAG</li>
-        <li>Neural Networks</li>
-        <li>Langage Models</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>GLPI</li>
-        <li>Markdown</li>
-        <li>Cybersécurité</li>
-        <li>Robotique</li>
-        <li>Web</li>
-        <li>Linux</li>
-        <li>Windows</li>
-        <li>JSON</li>
-      </ul>
-        <p>Langues :</p>
-      <ul>
-        <li> Anglais C1+ (languaskill)</li>
-        <li> Allemand B2</li>
-      </ul>
-        <p>Permis B</p>
-        <p>Mobilité géographique: france entière - international</p>
-    </section>
-
-    <!-- Expérience -->
-    <section>
-        <details>
-        <summary><h2>Expérience</h2></summary>
-            <div class="job">
-                <h4>Stage IA – <a href="https://www.gertrude.fr" target="_blank" rel="noopener noreferrer">Gertrude</a> - Système de transport intelligent</h4>
-                <span class="date">Mai 2025 - Juillet 2025</span>
-                <ul>
-                <li>Mise en place d'un <a href="#DocGen_LLM">outil</a> de documentation de base de code à l'aide de modèles de langage</li>
-                <li>Conseil pour l'intégration d'outils d'intelligence artificielle dans l'entreprise.</li>
-                <li>Participation à des projets de recherche en IA lié au traffic urbain</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h4>Responsable du parc informatique bénévole et trésorier – Jeunes sciences Bordeaux</h4>
-                <span class="date">2019 – 2025</span>
-                <ul>
-                    <li>Gestion et maintenance du parc informatique à l'aide de GLPI</li>
-                    <li>Assistance technique aux utilisateurs</li>
-                    <li>Maintenance des équipements informatiques</li>
-                    <li>Gestion des finances de l'association</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h4>Animateur de stages d'Informatique et Robotique – Jeunes sciences Bordeaux</h4>
-                <span class="date">2019 – 2025</span>
-                <ul>
-                    <li>Conception et animation de stages de robotique et d'informatique pour des jeunes de 8 à 17 ans</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h4>Job d'été restauration – Bordeaux</h4>
-                <span class="date">Eté 2021 à 2024</span>
-                <ul>
-                    <li>2021 Eklo Bordeaux - Runner service en salle, prise de commande et barman</li>
-                    <li>2023 Heiko poké Bègle - Employé polyvalent de restauration</li>
-                    <li>2024 Island poké - Employé polyvalent de restauration</li>
-                </ul>
-            </div>
-        </details>
-    </section>
-
-    <!-- Projets -->
-    <section>
-  <details>
-    <summary><h2>Projets</h2></summary>
-    <div class="project" id="DocGen_LLM">
-      <h4><a href="https://github.com/0xNatgan/DocGen_LLM" target="_blank" rel="noopener noreferrer">DocGen_LLM</a></h4>
-      Outil de génération de documentation de code à l'aide de modèles de langage et de RAG.
-      <ul class="bubble-list">
-        <li>Python</li>
-        <li>Docker</li>
-        <li>Serveurs de langage</li>
-        <li>LLM</li>
-        <li>RAG</li>
-        <li>documentation</li>
-        <li>mkdocs</li>
-        <li>Markdown</li>
-        <li>HTML</li>
-        <li>Open source</li>
-        <li>IA</li>
-      </ul>
-      <details>
-        <p>Problématique principale : Générer une documentation de code de manière automatisée et agnostique au langage dans le cadre de projet manquants de documentation et/ou ayant une documentation peu claire</p>
-        <p>DocGen_LLM est un outil de génération de documentation de code qui utilise des modèles de langage en combinaison avec des serveurs de langage pour créer un contexte concis destiné à des modèles de faible capacité, afin de produire une documentation claire et concise pour l'ensemble d'une base de code. Il est conçu pour être indépendant du langage de programmation. L'outil s'intègre facilement avec des outils de lecture de documentation comme mkdocs. Il permet de générer une documentation à ajouter au code ou à utiliser dans une documentation externe au format Markdown ou HTML.</p>
-        <p>Caractéristiques :</p>
-        <ul>
-          <li>Technologies utilisées : Python, Docker, Serveurs de langage, LLM, MKDocs</li>
-          <li>Objectifs : Automatiser la création de documentation de projet de code de manière agnostique au langage sur des projets manquants de documentation</li>
-          <li>Résultats : Amélioration de la lisibilité et de la compréhension du code, réduction du temps consacré à la documentation manuelle et augmentation de la qualité de la documentation générée</li>
-        </ul>
-      </details>
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">Junior AI Engineer</p>
+    <h1 class="hero-name"><span class="prefix">0x</span>Natgan</h1>
+    <p class="hero-tagline">
+      Building intelligent pipelines, agentic systems, and the occasional
+      hardware mod. Currently at Beepfake (Inria) — available for full-time roles from October 2026.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="https://github.com/0xNatgan" target="_blank" class="btn btn-ghost">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+        </svg>
+        GitHub
+      </a>
     </div>
-    <div class="project" id="TCL_LSP">
-      <h4><a href="https://github.com/0xNatgan/tcl-lsp" target="_blank" rel="noopener noreferrer">Serveur de Language TCL</a></h4>
-      Serveur de language TCL pour l'analyse de code.
-      <ul class="bubble-list">
-        <li>TCL</li>
-        <li>Serveur de language</li>
-        <li>TCP</li>
-        <li>stdin/out</li>
-      </ul>
-      <details>
-        <p>Problématique principale : Dans le cadre d'un besoin d'analyse d'un projet en TCL j'ai développé un serveur de language pour faciliter cette tâche et la rendre possible avec mon projet DocGen_LLM.</p>
-        <p>Ce serveur de language permet d'analyser le code TCL et d'en extraire des informations selon le standard LSP. Ce projet est une implémentation simple d'un serveur de langage TCL avec les capacités suivantes : extraction de symbols, recherche de définitions ainsi que références. Ce projet comprend une interface stdin/out et TCP.</p>
-      </details>
-    </div>
-    <div class="project" id="Quoridor">
-      <h4>Quoridor</h4>
-        <p>Jeu de société Quoridor développé en Java avec une interface graphique et des IA. Projet réalisé dans le cadre des cours de l'Université de Bordeaux.</p>
-        <ul class="bubble-list">
-            <li>Java</li>
-            <li>IA</li>
-            <li>Graphique</li>
-            <li>JavaFx</li>
-            <li>Junit</li>
-        </ul>
-        <details>
-            <p>Problématique principale : Développer un jeu de société Quoridor en Java avec une interface graphique et des IA pour jouer contre l'utilisateur.</p>
-            <p>Ce projet a été réalisé dans le cadre des cours de l'Université de Bordeaux. Il comprend une implémentation du jeu Quoridor avec une interface graphique en Java et des IA pour jouer contre l'utilisateur ainsi que des statistiques avancées sur les algorithmes d'IA utilisés.</p>
-            <p>Caractéristiques :</p>
-            <ul>
-                <li>Technologies utilisées : Java, JavaFx, Junit</li>
-                <li>Objectifs : Développer un jeu de société Quoridor avec une interface graphique et des IA</li>
-                <li>Résultats : Création d'un jeu fonctionnel avec une interface utilisateur intuitive et des IA jouant contre l'utilisateur avec la possibilité d'enregistrer, de charger des parties et de visualiser des statistiques sur les performances des IA.</li>
-            </ul>
-  </details>
-</section>
-
-    <!-- Education -->
-    <section>
-    <details>
-        <summary><h2>Formation</h2></summary>
-        <div class="education">
-        <h4>Master intelligence artificielle – Université de Bordeaux</h4>
-        <span class="date">2024 – 2026</span>
-        <p>Master intelligence artificielle. Option Base de données avancées</p>
-        </div>
-        <div class="education">
-            <h4>Licence Informatique – Université de Bordeaux</h4>
-            <span class="date">2020 – 2024</span>
-        </div>
-        <div class="education">
-            <h4>Formation développeur web – LeWagon</h4>
-            <span class="date">sept - nov 2021</span>
-            <p>Formation intensive au développement web.</p>
-        </div>
-        <div class="education">
-            <h4>Baccalauréat Scientifique – Lycée Vaclav Havel</h4>
-            <span class="date">2019-2020</span>
-        </div>
-
-    </details>
-    </section>
   </div>
+
+  <hr class="divider" />
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label reveal">About</p>
+    <h2 class="section-title reveal">Who I am</h2>
+    <p class="section-lead reveal">
+      A junior AI engineer with a taste for systems that sit at the boundary of
+      research and production — from multi-agent pipelines to model evaluation infrastructure.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-block reveal">
+        <h3>Currently</h3>
+        <p>Interning at an AI lab, building evaluation pipelines for audio and image models, and contributing to new
+          model development grounded in recent research.</p>
+      </div>
+      <div class="about-block reveal">
+        <h3>Background</h3>
+        <p>Computer science student with a focus on AI. I enjoy working across the stack — Python pipelines, LLM
+          tooling, and occasionally tearing apart hardware.</p>
+      </div>
+    </div>
+
+    <div class="skills-list reveal">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">LLMs</span>
+      <span class="skill-tag">Agentic Pipelines</span>
+      <span class="skill-tag">RAG</span>
+      <span class="skill-tag">LSP</span>
+      <span class="skill-tag">Docker</span>
+      <span class="skill-tag">PyTorch</span>
+      <span class="skill-tag">Evaluation</span>
+      <span class="skill-tag">Audio / Vision Models</span>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label reveal">Work</p>
+    <h2 class="section-title reveal">Projects</h2>
+    <p class="section-lead reveal">A mix of university research, internship work, and personal builds.</p>
+
+    <div class="projects-list">
+
+      <!-- ① Multi-Expert Peptide Pipeline — no image yet -->
+      <div class="reveal">
+        <a href="https://github.com/Roirtur/multi-expert-peptide-pipeline" target="_blank" class="project-card">
+          <div class="card-inner no-image">
+            <div class="card-body">
+              <div class="project-header">
+                <span class="project-name">Multi-Expert Peptide Pipeline</span>
+                <div class="project-badges">
+                  <span class="badge badge-uni">University</span>
+                  <span class="badge badge-personal">Group Project</span>
+                </div>
+              </div>
+              <p class="project-desc">
+                A proof-of-concept multi-agent system for in silico peptide design.
+                An orchestrator coordinates three specialist agents, a Generator(CVAE), a Chemist,
+                and a Biologist — running iterative propose-filter-score loops to surface top
+                molecular candidates. Benchmarked against multiple baselines, with a Streamlit UI
+                for interactive exploration.
+              </p>
+              <div class="project-tech">
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">Multi-agent</span>
+                <span class="tech-chip">CVAE</span>
+                <span class="tech-chip">Bioinformatics</span>
+              </div>
+              <span class="project-link">View on GitHub →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- ② DocGen LLM — no image yet -->
+      <div class="reveal">
+        <a href="https://github.com/0xNatgan/DocGen_LLM" target="_blank" class="project-card">
+          <div class="card-inner no-image">
+            <div class="card-body">
+              <div class="project-header">
+                <span class="project-name">DocGen LLM</span>
+                <div class="project-badges">
+                  <span class="badge badge-internship">Internship</span>
+                  <span class="badge badge-wip">In Progress</span>
+                </div>
+              </div>
+              <p class="project-desc">
+                A CLI tool that auto-generates high-quality documentation for any codebase.
+                Uses Language Server Protocol servers for precise symbol and structure extraction,
+                then passes that context to an LLM to produce summaries, docstrings, and Markdown docs.
+                Language-agnostic by design — if an LSP exists for it, DocGen can document it.
+                A TCL lsp is available at this link : <a href="https://github.com/0xNatgan/tcl-lsp"
+                  target="_blank">github.com/0xNatgan/tcl-lsp</a>
+              </p>
+              <div class="project-tech">
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">LSP</span>
+                <span class="tech-chip">LLMs</span>
+                <span class="tech-chip">Docker</span>
+                <span class="tech-chip">CLI</span>
+                <span class="tech-chip">Ollama</span>
+              </div>
+              <span class="project-link">View on GitHub →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- ③ Beepfake Internship — no image, no link -->
+      <div class="reveal">
+        <div class="project-card-nolink">
+          <div class="card-inner no-image">
+            <div class="card-body">
+              <div class="project-header">
+                <span class="project-name">Beepfake Internship</span>
+                <div class="project-badges">
+                  <span class="badge badge-current">Current Internship</span>
+                </div>
+              </div>
+              <p class="project-desc">
+                Building evaluation infrastructure to benchmark audio and image models across
+                multiple dimensions, writing evaluation harnesses, running comparisons between
+                existing and new models, and contributing to model development informed by recent
+                research.
+              </p>
+              <div class="project-tech">
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">Audio Models</span>
+                <span class="tech-chip">Vision Models</span>
+                <span class="tech-chip">Evaluation</span>
+                <span class="tech-chip">Research</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ④ Wii mod — HAS an image slot ready -->
+      <div class="reveal">
+        <div class="project-card-nolink">
+          <!--
+            To add your photo: replace the <div class="card-image-placeholder">
+            block with:
+              <img src="path/to/your-wii-photo.jpg" alt="USB-C Wii watercooling mod" />
+            inside the .card-image div below.
+          -->
+          <div class="card-inner">
+            <div class="card-body">
+              <div class="project-header">
+                <span class="project-name">USB-C Wii + Watercooling</span>
+                <div class="project-badges">
+                  <span class="badge badge-personal">Personal</span>
+                </div>
+              </div>
+              <p class="project-desc">
+                Modded a Nintendo Wii to run entirely on USB-C power and added a custom
+                watercooling loop. The original wii was to boring so i pimped it a little bit.
+                See more details and photos in the GitHub repo linked below (coming soon).
+              </p>
+              <div class="project-tech">
+                <span class="tech-chip">Hardware</span>
+                <span class="tech-chip">USB-C PD</span>
+                <span class="tech-chip">Watercooling</span>
+                <span class="tech-chip">Embedded</span>
+              </div>
+            </div>
+            <div class="card-image">
+              <!-- Replace this placeholder with your actual <img> tag -->
+              <img src="ressources/moded_wii.jpg" alt="USB-C Wii watercooling mod" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-box reveal">
+      <h2>Let's build something.</h2>
+      <p>Open to internships, collaborations, and interesting problems.<br />Reach out — I read everything.</p>
+      <div class="contact-links">
+        <a href="resume.html" class="btn btn-ghost">View Resume</a>
+        <a href="cv_en_Nathan_FITGER.pdf" download class="btn btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          View resume in PDF
+        </a>
+        <a href="https://github.com/0xNatgan" target="_blank" class="btn btn-primary">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+          </svg>
+          GitHub
+        </a>
+        <a href="mailto:your@email.com" class="btn btn-ghost">Email me</a>
+        <a href="https://www.linkedin.com/in/0xnatgan" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span><span style="color:var(--accent)">0x</span>Natgan</span> · Built with HTML &amp; CSS · 2026
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
+
 </html>
