@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume — 0xNatgan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --bg: #FAF9F7;
@@ -24,7 +33,10 @@
       --body: 'Inter', sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -36,16 +48,19 @@
     /* ─── NAV ─── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.25rem 2.5rem;
-      background: rgba(250,249,247,0.9);
+      background: rgba(250, 249, 247, 0.9);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
+
     .nav-logo {
       font-family: var(--mono);
       font-size: 0.95rem;
@@ -53,8 +68,18 @@
       color: var(--text);
       text-decoration: none;
     }
-    .nav-logo .prefix { color: var(--accent); }
-    nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+
+    .nav-logo .prefix {
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
     nav ul a {
       font-family: var(--sans);
       font-size: 0.875rem;
@@ -63,7 +88,10 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    nav ul a:hover { color: var(--accent); }
+
+    nav ul a:hover {
+      color: var(--accent);
+    }
 
     .btn {
       font-family: var(--sans);
@@ -77,10 +105,28 @@
       align-items: center;
       gap: 0.35rem;
     }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: var(--accent-2); transform: translateY(-1px); }
-    .btn-ghost { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-2);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
 
     /* ─── LAYOUT ─── */
     .page {
@@ -109,12 +155,14 @@
       line-height: 1.1;
       margin-bottom: 0.4rem;
     }
+
     .resume-header-left h1 .prefix {
       font-family: var(--mono);
       font-weight: 400;
       color: var(--accent);
       font-size: 0.65em;
     }
+
     .resume-title {
       font-family: var(--sans);
       font-size: 1rem;
@@ -122,6 +170,7 @@
       color: var(--muted);
       margin-bottom: 1rem;
     }
+
     .resume-summary {
       font-size: 0.92rem;
       color: var(--muted);
@@ -135,6 +184,7 @@
       gap: 0.45rem;
       min-width: 200px;
     }
+
     .contact-item {
       display: flex;
       align-items: center;
@@ -143,9 +193,20 @@
       color: var(--muted);
       font-family: var(--body);
     }
-    .contact-item svg { flex-shrink: 0; color: var(--accent); }
-    .contact-item a { color: var(--muted); text-decoration: none; }
-    .contact-item a:hover { color: var(--accent); }
+
+    .contact-item svg {
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .contact-item a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
 
     /* ─── RESUME BODY ─── */
     .resume-body {
@@ -156,7 +217,9 @@
     }
 
     /* ─── SECTIONS ─── */
-    .resume-section { margin-bottom: 2.5rem; }
+    .resume-section {
+      margin-bottom: 2.5rem;
+    }
 
     .resume-section-title {
       font-family: var(--mono);
@@ -170,8 +233,13 @@
     }
 
     /* ─── TIMELINE ENTRIES ─── */
-    .entry { margin-bottom: 1.5rem; }
-    .entry:last-child { margin-bottom: 0; }
+    .entry {
+      margin-bottom: 1.5rem;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
 
     .entry-header {
       display: flex;
@@ -214,11 +282,19 @@
       color: var(--accent);
       text-decoration: none;
     }
-    .entry-desc a:hover { text-decoration: underline; }
+
+    .entry-desc a:hover {
+      text-decoration: underline;
+    }
 
     /* ─── SIDEBAR ─── */
-    .sidebar-block { margin-bottom: 2rem; }
-    .sidebar-block:last-child { margin-bottom: 0; }
+    .sidebar-block {
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-block:last-child {
+      margin-bottom: 0;
+    }
 
     .sidebar-title {
       font-family: var(--mono);
@@ -232,13 +308,17 @@
     }
 
     /* Languages */
-    .lang-item { margin-bottom: 0.75rem; }
+    .lang-item {
+      margin-bottom: 0.75rem;
+    }
+
     .lang-name {
       font-family: var(--sans);
       font-size: 0.875rem;
       font-weight: 600;
       margin-bottom: 0.1rem;
     }
+
     .lang-level {
       font-size: 0.78rem;
       color: var(--muted);
@@ -250,6 +330,7 @@
       flex-wrap: wrap;
       gap: 0.4rem;
     }
+
     .tag {
       font-family: var(--mono);
       font-size: 0.7rem;
@@ -259,6 +340,7 @@
       border-radius: 4px;
       font-weight: 500;
     }
+
     .tag-neutral {
       background: var(--surface);
       color: var(--muted);
@@ -283,10 +365,12 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
+
     .download-bar p {
       font-size: 0.87rem;
       color: var(--muted);
     }
+
     .download-bar strong {
       color: var(--text);
       font-family: var(--sans);
@@ -298,27 +382,57 @@
       transform: translateY(14px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    .reveal.visible { opacity: 1; transform: none; }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 680px) {
-      nav { padding: 1rem 1.25rem; }
-      .page { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .resume-body { grid-template-columns: 1fr; }
-      .resume-header { flex-direction: column; }
+      nav {
+        padding: 1rem 1.25rem;
+      }
+
+      .page {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+
+      .resume-body {
+        grid-template-columns: 1fr;
+      }
+
+      .resume-header {
+        flex-direction: column;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal { transition: none; }
+      .reveal {
+        transition: none;
+      }
     }
 
     @media print {
-      nav, .download-bar { display: none; }
-      .page { padding-top: 1rem; }
-      .reveal { opacity: 1; transform: none; }
+
+      nav,
+      .download-bar {
+        display: none;
+      }
+
+      .page {
+        padding-top: 1rem;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -329,8 +443,13 @@
       <li><a href="index.html#contact">Contact</a></li>
       <li>
         <!-- Update href to point to your PDF file once hosted -->
-        <a href="CV_2026-06-10_Nathan_Fitger.pdf" download class="btn btn-primary">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <a href="cv_en_Nathan_FITGER.pdf" download class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
           Download PDF
         </a>
       </li>
@@ -342,8 +461,13 @@
     <!-- Download nudge bar -->
     <div class="download-bar reveal">
       <p><strong>Nathan Fitger</strong> · Resume · Last updated June 2026</p>
-      <a href="CV_2026-06-10_Nathan_Fitger.pdf" download class="btn btn-primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <a href="cv_en_Nathan_FITGER.pdf" download class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
         Download PDF
       </a>
     </div>
@@ -352,37 +476,58 @@
     <div class="resume-header reveal">
       <div class="resume-header-left">
         <h1><span class="prefix">0x</span>Nathan Fitger</h1>
-        <p class="resume-title">Master's in Artificial Intelligence · Available Oct 2026</p>
+        <p class="resume-title">MSc in Artificial Intelligence · Available Nov 2026</p>
         <p class="resume-summary">
-          Seeking a full-time AI engineering role, available from October 2026.
+          Seeking a full-time AI engineering role or PhD position, available from November 2026.
           Experienced in building evaluation pipelines, agentic systems, and
           research-driven model development. Previous experience as an AI intern,
-          IT infrastructure manager, and workshop facilitator.
+          IT infrastructure manager .
         </p>
       </div>
       <div class="resume-header-right">
         <div class="contact-item">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
           <a href="mailto:nath.fitger@gmail.com">nath.fitger@gmail.com</a>
         </div>
         <div class="contact-item">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.4a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.16a16 16 0 0 0 6.29 6.29l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.4a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.16a16 16 0 0 0 6.29 6.29l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
           +33 7 81 61 31 02
         </div>
         <div class="contact-item">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
           Paris / Bordeaux
         </div>
         <div class="contact-item">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+          </svg>
           <a href="https://github.com/0xNatgan" target="_blank">0xNatgan</a>
         </div>
         <div class="contact-item">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+          </svg>
           <a href="https://discord.com/users/0xNatgan" target="_blank">@0xNatgan</a>
         </div>
         <div class="contact-item">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+          </svg>
           <a href="https://linkedin.com/in/nfitger" target="_blank">nfitger</a>
         </div>
       </div>
@@ -487,7 +632,8 @@
             <div class="entry-org">University of Bordeaux — Group Project</div>
             <p class="entry-desc">
               Multi-agent proof-of-concept for in silico peptide design with iterative
-              propose-filter-score loops. <a href="https://github.com/Roirtur/multi-expert-peptide-pipeline" target="_blank">github.com/Roirtur/multi-expert-peptide-pipeline</a>
+              propose-filter-score loops. <a href="https://github.com/Roirtur/multi-expert-peptide-pipeline"
+                target="_blank">github.com/Roirtur/multi-expert-peptide-pipeline</a>
             </p>
           </div>
 
@@ -515,7 +661,8 @@
             <div class="entry-org">Open source · Maintainer / Creator</div>
             <p class="entry-desc">
               Automated code documentation generation for legacy and undocumented codebases.
-              Language-agnostic and privacy-oriented. <a href="https://github.com/0xNatgan/DocGen_LLM" target="_blank">github.com/0xNatgan/DocGen_LLM</a>
+              Language-agnostic and privacy-oriented. <a href="https://github.com/0xNatgan/DocGen_LLM"
+                target="_blank">github.com/0xNatgan/DocGen_LLM</a>
             </p>
           </div>
         </div>
@@ -604,4 +751,5 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
+
 </html>
