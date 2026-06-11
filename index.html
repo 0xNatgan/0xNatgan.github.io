@@ -334,6 +334,7 @@
       object-fit: cover;
       display: block;
       transition: transform 0.4s ease;
+      cursor: zoom-in;
     }
 
     .project-card:hover .card-image img {
@@ -519,6 +520,45 @@
       }
     }
 
+    /* ─── IMAGE MODAL ─────────────────────────────────── */
+    .image-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 2rem;
+    }
+
+    .image-modal.show {
+      opacity: 1;
+      pointer-events: auto;
+      cursor: zoom-out;
+    }
+
+    .image-modal img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+      object-fit: contain;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .image-modal.show img {
+      transform: scale(1);
+    }
+
     /* ─── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 680px) {
       nav {
@@ -595,7 +635,7 @@
     <p class="hero-eyebrow">Junior AI Engineer</p>
     <h1 class="hero-name"><span class="prefix">0x</span>Natgan</h1>
     <p class="hero-tagline">
-      Building intelligent pipelines, agentic systems, and the occasional
+      Building AI models, intelligent pipelines, agentic systems, and the occasional
       hardware mod. Currently at Beepfake (Inria) — available for full-time roles or PhD from November 2026.
     </p>
     <div class="hero-ctas">
@@ -826,6 +866,11 @@
     <span><span style="color:var(--accent)">0x</span>Natgan</span> · Built with HTML &amp; CSS · 2026
   </footer>
 
+  <!-- IMAGE MODAL -->
+  <div id="image-modal" class="image-modal" onclick="this.classList.remove('show')">
+    <img id="image-modal-img" src="" alt="Expanded view">
+  </div>
+
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -837,6 +882,18 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Image Modal Logic
+    document.querySelectorAll('.card-image img').forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('image-modal-img');
+        modalImg.src = img.src;
+        modal.classList.add('show');
+      });
+    });
   </script>
 </body>
 
