@@ -20,14 +20,14 @@
     }
 
     :root {
-      --bg: #F4F7F9;
-      --surface: #EBF1F4;
-      --text: #172a3a;
-      --muted: #508991;
-      --accent: #004346;
+      --bg: #F8FAFC;
+      --surface: #F1F5F9;
+      --text: #0F172A;
+      --muted: #64748B;
+      --accent: #1E293B;
       --accent-2: #e65c00;
       --accent-light: rgba(230, 92, 0, 0.12);
-      --border: rgba(80, 137, 145, 0.2);
+      --border: rgba(15, 23, 42, 0.08);
       --mono: 'JetBrains Mono', monospace;
       --sans: 'Space Grotesk', sans-serif;
       --body: 'Inter', sans-serif;
@@ -269,11 +269,31 @@
     .skill-tag {
       font-family: var(--mono);
       font-size: 0.75rem;
-      background: var(--accent-light);
-      color: var(--accent-2);
       padding: 0.3rem 0.75rem;
       border-radius: 4px;
       font-weight: 500;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .skill-tag-orange {
+      background: rgba(230, 92, 0, 0.08);
+      color: #b34700;
+    }
+
+    .skill-tag-purple {
+      background: rgba(124, 58, 237, 0.08);
+      color: #7c3aed;
+    }
+
+    .skill-tag-blue {
+      background: rgba(37, 99, 235, 0.08);
+      color: #2563eb;
+    }
+
+    .skill-tag-green {
+      background: rgba(16, 185, 129, 0.08);
+      color: #059669;
     }
 
     /* ─── PROJECT CARDS ───────────────────────────────── */
@@ -396,13 +416,13 @@
     }
 
     .badge-uni {
-      background: rgba(116, 179, 206, 0.15);
-      color: #2c6078;
+      background: rgba(37, 99, 235, 0.08);
+      color: #2563eb;
     }
 
     .badge-internship {
-      background: rgba(80, 137, 145, 0.12);
-      color: #356268;
+      background: rgba(230, 92, 0, 0.08);
+      color: #c2410c;
     }
 
     .badge-current {
@@ -411,13 +431,13 @@
     }
 
     .badge-personal {
-      background: rgba(23, 42, 58, 0.08);
-      color: #172a3a;
+      background: rgba(16, 185, 129, 0.08);
+      color: #059669;
     }
 
     .badge-wip {
-      background: rgba(80, 137, 145, 0.12);
-      color: #356268;
+      background: rgba(124, 58, 237, 0.08);
+      color: #7c3aed;
     }
 
     .project-desc {
@@ -446,11 +466,15 @@
       cursor: pointer;
     }
 
-    .tech-chip:hover,
-    .skill-tag:hover {
+    .tech-chip:hover {
       color: var(--accent-2);
       border-color: var(--accent-2);
       background: var(--accent-light);
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-1px);
+      filter: brightness(0.95);
     }
 
     .project-link {
@@ -704,14 +728,14 @@
             style="font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">
             AI & Deep Learning</h4>
           <div class="skills-list" style="margin-top: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">Deep Learning</span>
-            <span class="skill-tag">NLP</span>
-            <span class="skill-tag">Audio / Vision Models</span>
-            <span class="skill-tag">MoE (Mixture of Experts)</span>
-            <span class="skill-tag">GNNs & CVAEs</span>
-            <span class="skill-tag">Reinforcement Learning</span>
-            <span class="skill-tag">Time Series</span>
+            <span class="skill-tag skill-tag-orange">PyTorch</span>
+            <span class="skill-tag skill-tag-orange">Deep Learning</span>
+            <span class="skill-tag skill-tag-orange">NLP</span>
+            <span class="skill-tag skill-tag-orange">Audio / Vision Models</span>
+            <span class="skill-tag skill-tag-orange">MoE (Mixture of Experts)</span>
+            <span class="skill-tag skill-tag-orange">GNNs & CVAEs</span>
+            <span class="skill-tag skill-tag-orange">Reinforcement Learning</span>
+            <span class="skill-tag skill-tag-orange">Time Series</span>
           </div>
         </div>
         <div>
@@ -719,12 +743,12 @@
             style="font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">
             Agentic & LLM Systems</h4>
           <div class="skills-list" style="margin-top: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            <span class="skill-tag">LLMs (Ollama)</span>
-            <span class="skill-tag">Multi-Agent Systems</span>
-            <span class="skill-tag">MCP (Model Context Protocol)</span>
-            <span class="skill-tag">RAG</span>
-            <span class="skill-tag">LSP Integration</span>
-            <span class="skill-tag">R&D</span>
+            <span class="skill-tag skill-tag-purple">LLMs (Ollama)</span>
+            <span class="skill-tag skill-tag-purple">Multi-Agent Systems</span>
+            <span class="skill-tag skill-tag-purple">MCP (Model Context Protocol)</span>
+            <span class="skill-tag skill-tag-purple">RAG</span>
+            <span class="skill-tag skill-tag-purple">LSP Integration</span>
+            <span class="skill-tag skill-tag-purple">R&D</span>
           </div>
         </div>
         <div>
@@ -732,12 +756,12 @@
             style="font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">
             Software & Devops</h4>
           <div class="skills-list" style="margin-top: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Neo4j & Graph DBs</span>
-            <span class="skill-tag">CLI Tooling</span>
-            <span class="skill-tag">Evaluation Pipelines</span>
-            <span class="skill-tag">HPC (Slurm)</span>
+            <span class="skill-tag skill-tag-blue">Python</span>
+            <span class="skill-tag skill-tag-blue">Docker</span>
+            <span class="skill-tag skill-tag-blue">Neo4j & Graph DBs</span>
+            <span class="skill-tag skill-tag-blue">CLI Tooling</span>
+            <span class="skill-tag skill-tag-blue">Evaluation Pipelines</span>
+            <span class="skill-tag skill-tag-blue">HPC (Slurm)</span>
           </div>
         </div>
         <div>
@@ -745,9 +769,9 @@
             style="font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">
             Specialized & Hardware</h4>
           <div class="skills-list" style="margin-top: 0; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            <span class="skill-tag">Bioinformatics</span>
-            <span class="skill-tag">Hardware Modification</span>
-            <span class="skill-tag">Embedded Systems</span>
+            <span class="skill-tag skill-tag-green">Bioinformatics</span>
+            <span class="skill-tag skill-tag-green">Hardware Modification</span>
+            <span class="skill-tag skill-tag-green">Embedded Systems</span>
           </div>
         </div>
       </div>
